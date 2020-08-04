@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>Nearby Buses</title>
+    <title>Georgia Bus Routes</title>
     <link rel="stylesheet" type="text/css" href="/custom.css" />
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -9,10 +9,11 @@
     />
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   </head>
-  <body>
-    <div class="container bg-light justify-content-center">
+  <body class="body">
+    <div class="container top-box rounded justify-content-center">
       <div class="row">
         <div class="span6" style="float: none; margin: 0 auto;">
+          <!-- form to find buses -->
           <br />
           <h1 class="text-center">Find Buses</h1>
           <form
@@ -52,6 +53,8 @@
           <br />
         </div>
       </div>
+
+      <!-- results table -->
       <div class="row" th:if="${buses != null and buses.size() > 0}">
         <table class="table table-striped">
           <tr>
@@ -68,11 +71,15 @@
           </tr>
         </table>
       </div>
+
+      <!-- div if no results -->
       <div class="text-center" th:if="${buses != null and buses.size() == 0}">
         <h3>Sorry, there are no nearby buses.</h3>
       </div>
     </div>
-    <div id="map"></div>
+
+    <!-- map of results -->
+    <div class="row" id="map"></div>
     <div th:if="${buses != null and buses.size() > 0}">
       <script th:inline="javascript">
         /*<![CDATA[*/
@@ -86,6 +93,12 @@
         async
         defer
       ></script>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <br />
+      <span><b>Address to try:</b> 225 Baker St NW, Atlanta</span>
     </div>
   </body>
 </html>

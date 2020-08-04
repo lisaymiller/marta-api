@@ -1,4 +1,5 @@
 var map;
+
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: {
@@ -16,6 +17,7 @@ function initMap() {
         lng: parseFloat(busLocations[i].LONGITUDE),
       },
       map: map,
+      animation: google.maps.Animation.DROP,
     });
   }
 }
