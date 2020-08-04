@@ -1,5 +1,7 @@
 var map;
 
+var image = "bus-marker.png";
+
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: {
@@ -18,6 +20,7 @@ function initMap() {
       },
       map: map,
       animation: google.maps.Animation.DROP,
+      icon: image,
     });
   }
 }
