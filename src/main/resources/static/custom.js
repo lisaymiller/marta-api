@@ -2,6 +2,15 @@ function initMap() {
   // image for bus icons
   let image = "bus-marker.png";
 
+  // content inside of the info window
+  let contentString =
+    "<h6><span style='color: black;'>Bus #</h6></span><b><span style='color: black;'>????</b></span>";
+
+  // info window
+  let infoWindow = new google.maps.InfoWindow({
+    content: contentString,
+  });
+
   // making the map with the center being the first bus location
   let map = new google.maps.Map(document.getElementById("map"), {
     center: {
@@ -12,13 +21,9 @@ function initMap() {
     scrollwheel: false,
   });
 
-  // content inside of the info window
-  let contentString = "${bus.VEHICLE}";
-
-  // info window
-  let infoWindow = new google.maps.InfoWindow({
-    content: contentString,
-  });
+  // transit map layer
+  const transitLayer = new google.maps.TransitLayer();
+  transitLayer.setMap(map);
 
   // for loop getting bus locations in array
   for (i = 0; i < busLocations.length; i++) {
@@ -52,8 +57,5 @@ function initMap() {
         marker.setAnimation(google.maps.Animation.BOUNCE);
       }
     }
-
-    // end of for loop
-  }
-  // end of initMap()
-}
+  } // end of for loop
+} // end of initMap()

@@ -80,23 +80,25 @@
         <h3>Sorry, there are no nearby buses.</h3>
       </div>
     </div>
+    <!-- end of container -->
 
     <!-- map of results -->
-    <div id="map">
-      <div th:if="${buses != null and buses.size() > 0}">
-        <script th:inline="javascript">
-          /*<![CDATA[*/
-          var busLocations = /*[[${buses}]]*/
-          /*]]>*/
-        </script>
-        <script th:inline="javascript" src="/custom.js"></script>
-        <script
-          th:src="@{${'https://maps.googleapis.com/maps/api/js?key=' 
-    + @environment.getProperty('google_api_key') + '&callback=initMap'}}"
-          async
-          defer
-        ></script>
-      </div>
+    <div class="col justify-content-center" id="map"></div>
+
+    <!-- scripts to make map work -->
+    <div th:if="${buses != null and buses.size() > 0}">
+      <script th:inline="javascript">
+        /*<![CDATA[*/
+        var busLocations = /*[[${buses}]]*/
+        /*]]>*/
+      </script>
+      <script th:inline="javascript" src="/custom.js"></script>
+      <script
+        th:src="@{${'https://maps.googleapis.com/maps/api/js?key=' 
+          + @environment.getProperty('google_api_key') + '&callback=initMap'}}"
+        async
+        defer
+      ></script>
     </div>
 
     <!-- footer -->

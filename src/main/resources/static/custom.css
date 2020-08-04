@@ -10,14 +10,14 @@ body {
 }
 
 #map {
-  height: 75%;
+  height: 65%;
 }
 
 .body {
   background-image: url(background.jpg);
   background-size: cover;
   background-position: center;
-  background-repeat: none;
+  background-repeat: no-repeat;
 }
 
 .top-box {
