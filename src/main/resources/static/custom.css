@@ -10,12 +10,11 @@ body {
 }
 
 #map {
-  height: 65%;
+  height: 30rem;
 }
 
 .body {
   background-image: url(background.jpg);
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -27,12 +26,4 @@ body {
 .results-table {
   padding-left: 7rem;
   padding-right: 7rem;
-}
-
-.footer {
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.6));
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1% 1%;
 }

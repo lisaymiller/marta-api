@@ -27,7 +27,7 @@
               <input
                 type="text"
                 th:field="*{address}"
-                placeholder="Address"
+                placeholder="225 Baker St NW"
                 class="form-control form-control-sm"
               />
             </div>
@@ -35,7 +35,7 @@
               <input
                 type="text"
                 th:field="*{city}"
-                placeholder="City"
+                placeholder="Atlanta"
                 class="form-control form-control-sm"
               />
             </div>
@@ -77,13 +77,18 @@
 
       <!-- div if no results -->
       <div class="text-center" th:if="${buses != null and buses.size() == 0}">
-        <h3>Sorry, there are no nearby buses.</h3>
+        <h5>Sorry, there are no nearby buses.</h5>
       </div>
-    </div>
-    <!-- end of container -->
 
-    <!-- map of results -->
-    <div class="col justify-content-center" id="map"></div>
+      <!-- map of results -->
+      <div
+        id="map"
+        th:style="${buses != null and buses.size() > 0 ? 'display:block' : 'display:none'}"
+      ></div>
+      <br />
+
+      <!-- end of container -->
+    </div>
 
     <!-- scripts to make map work -->
     <div th:if="${buses != null and buses.size() > 0}">
@@ -99,12 +104,6 @@
         async
         defer
       ></script>
-    </div>
-
-    <!-- footer -->
-    <div class="footer">
-      <br />
-      <span><b>Address to try:</b> 225 Baker St NW, Atlanta</span>
     </div>
   </body>
 </html>
